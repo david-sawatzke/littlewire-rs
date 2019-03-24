@@ -1,0 +1,12 @@
+[package]
+name = "littlewire-sys"
+version = "0.1.0"
+authors = ["David Sawatzke <david-sawatzke@users.noreply.github.com>"]
+edition = "2018"
+build = "build.rs"
+
+[dependencies]
+
+[build-dependencies]
+bindgen = "0.48.0"
+cc = "1.0.0"
