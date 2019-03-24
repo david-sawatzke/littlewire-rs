@@ -4,6 +4,7 @@ use std::error::Error;
 use std::ffi::CStr;
 use std::os::raw::c_char;
 
+pub mod analog;
 pub mod gpio;
 pub mod prelude {
     pub use embedded_hal::prelude::*;
@@ -57,5 +58,9 @@ impl LittleWire {
     }
     pub fn into_gpio(self) -> gpio::LittleWireGpio {
         gpio::LittleWireGpio(self)
+    }
+    pub fn into_analog(self) -> analog::LittleWireAnalog {
+        unsafe { sys::analog_init(self.dev, sys::VREF_VCC as u8) };
+        analog::LittleWireAnalog(self)
     }
 }
