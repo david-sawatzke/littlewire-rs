@@ -31,6 +31,7 @@ fn main() {
             None,
         )
         .include("library")
+        .warnings(false)
         .file("library/littleWire.c")
         .file("library/littleWire_servo.c")
         .file("library/littleWire_util.c")
