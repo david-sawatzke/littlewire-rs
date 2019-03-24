@@ -6,3 +6,5 @@ edition = "2018"
 
 [dependencies]
 littlewire-sys = { path = "../littlewire-sys"}
+derive_more = "0.14.0"
+embedded-hal = {version = "0.2.0", features = ["unproven"]}
