@@ -8,6 +8,8 @@ pub mod analog;
 pub mod gpio;
 pub mod prelude {
     pub use embedded_hal::prelude::*;
+    // These aren't yet included in the latest embedded_hal release
+    pub use embedded_hal::adc::OneShot as _lw_adc_OneShot;
 }
 
 #[derive(Debug, Display)]
