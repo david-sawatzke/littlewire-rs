@@ -5,14 +5,14 @@ use littlewire_sys as sys;
 pub struct LittleWireGpio(pub(crate) LittleWire);
 
 pub struct Pin {
-    dev: *mut sys::littleWire,
-    num: u8,
+    pub(crate) dev: *mut sys::littleWire,
+    pub(crate) num: u8,
 }
 
 pub struct InputPin(Pin);
 // Just save the output pin state for the stateful traits
 // We're not hurting for ram anyway
-pub struct OutputPin(Pin, bool);
+pub struct OutputPin(pub(crate) Pin, bool);
 
 pub struct Pins {
     pub pin1: Pin,

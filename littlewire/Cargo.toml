@@ -9,3 +9,7 @@ littlewire-sys = { path = "../littlewire-sys"}
 derive_more = "0.14.0"
 nb = "0.1.0"
 embedded-hal = {version = "0.2.0", features = ["unproven"]}
+smart-leds-trait = "0.1.0"
+
+[dev-dependencies]
+smart-leds = "0.1.0"

@@ -7,10 +7,12 @@ use std::os::raw::c_char;
 pub mod analog;
 pub mod delay;
 pub mod gpio;
+pub mod ws2812;
 pub mod prelude {
     pub use embedded_hal::prelude::*;
     // These aren't yet included in the latest embedded_hal release
     pub use embedded_hal::adc::OneShot as _lw_adc_OneShot;
+    pub use smart_leds_trait::SmartLedsWrite;
 }
 
 #[derive(Debug, Display)]
