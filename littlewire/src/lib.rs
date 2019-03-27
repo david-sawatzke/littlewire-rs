@@ -5,6 +5,7 @@ use std::ffi::CStr;
 use std::os::raw::c_char;
 
 pub mod analog;
+pub mod delay;
 pub mod gpio;
 pub mod prelude {
     pub use embedded_hal::prelude::*;

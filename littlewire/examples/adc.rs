@@ -1,6 +1,5 @@
 use littlewire::prelude::*;
 use littlewire::*;
-use std::thread::sleep_ms;
 
 fn main() {
     // Connect to littleWire
@@ -8,10 +7,11 @@ fn main() {
     let version = lw.read_firmware_version().unwrap();
     println!("Version: {}.{}", version.0, version.1);
 
+    let mut delay = delay::Delay;
     let mut adc = lw.into_analog();
     loop {
         let measurement = adc.read(&mut analog::AdcPin3 {}).unwrap();
         println!("Measured {}", measurement);
-        sleep_ms(1000);
+        delay.delay_ms(1000u16);
     }
 }
