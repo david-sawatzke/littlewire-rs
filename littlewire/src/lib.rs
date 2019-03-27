@@ -68,4 +68,8 @@ impl LittleWire {
         unsafe { sys::analog_init(self.dev, sys::VREF_VCC as u8) };
         analog::LittleWireAnalog(self)
     }
+    /// Escape hatch if you need to access the c library directly
+    pub fn get_ptr(&self) -> *mut sys::littleWire {
+        self.dev
+    }
 }
