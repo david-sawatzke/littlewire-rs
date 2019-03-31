@@ -7,7 +7,9 @@ use std::os::raw::c_char;
 pub mod analog;
 pub mod delay;
 pub mod gpio;
+pub mod spi;
 pub mod ws2812;
+
 pub mod prelude {
     pub use embedded_hal::prelude::*;
     // These aren't yet included in the latest embedded_hal release
@@ -67,6 +69,10 @@ impl LittleWire {
     pub fn into_analog(self) -> analog::LittleWireAnalog {
         unsafe { sys::analog_init(self.dev, sys::VREF_VCC as u8) };
         analog::LittleWireAnalog(self)
+    }
+    pub fn into_spi(self) -> spi::LittleWireSpi {
+        unsafe { sys::spi_init(self.dev) };
+        spi::LittleWireSpi(self, None)
     }
     /// Escape hatch if you need to access the c library directly
     pub fn get_ptr(&self) -> *mut sys::littleWire {
